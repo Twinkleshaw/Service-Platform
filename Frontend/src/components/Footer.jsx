@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="bg-purple-600 p-8 text-center text-slate-300 font-semibold text-xl">
+    <footer className="bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500 p-8 text-center text-black font-semibold text-xl">
       <p>@Twinkleshaw 2024</p>
     </footer>
   );

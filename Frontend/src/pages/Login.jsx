@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 function Login() {
   const [user, setUser] = useState({
@@ -14,9 +16,34 @@ function Login() {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+
+  const navigate = useNavigate();
+  const { storeToken } = useAuth();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(user);
+    console.log(user);
+    try {
+      const response = await fetch(`http://localhost:3000/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      if (response.ok) {
+        const res_data = await response.json();
+        storeToken(res_data.token);
+        setUser({ email: "", password: "" });
+        alert("Login Successful");
+        navigate("/");
+      } else {
+        alert("Invalid Credentials");
+      }
+      console.log(response);
+    } catch (error) {
+      console.log("login", error);
+    }
   };
   return (
     <>
@@ -40,13 +67,13 @@ function Login() {
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   placeholder="Enter your Email"
                   required
                   value={user.email}
                   onChange={handleInput}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 />
-
                 <label
                   htmlFor="password"
                   className="block text-slate-300 font-medium "
@@ -56,6 +83,7 @@ function Login() {
                 <input
                   type="password"
                   name="password"
+                  id="password"
                   placeholder="Enter your Password"
                   required
                   value={user.password}

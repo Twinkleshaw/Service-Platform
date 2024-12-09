@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 function Register() {
   const [user, setUser] = useState({
     username: "",
@@ -17,9 +18,31 @@ function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const { storeToken } = useAuth();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(user);
+    console.log(user);
+    try {
+      const response = await fetch(`http://localhost:3000/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        const res_data = await response.json();
+        console.log(res_data);
+        storeToken(res_data.token);
+        setUser({ username: "", email: "", phone: "", password: "" });
+        navigate("/login");
+      }
+      console.log(response);
+    } catch (error) {
+      console.log("register", error);
+    }
   };
   return (
     <>
@@ -27,7 +50,7 @@ function Register() {
         <main className="pt-8 w-full max-w-5xl ">
           <div className="parent md:flex md:justify-evenly ">
             <div className="leftside">
-              <img src="/images/register.png" alt="" height="400" width="400" />
+              <img src="/images/login.png" alt="" height="400" width="400" />
             </div>
             <div className="rightside  md:w-1/3">
               <h1 className="text-3xl font-bold text-slate-200 mb-3 text-center md:text-left pt-4">
@@ -44,6 +67,7 @@ function Register() {
                 <input
                   type="text"
                   name="username"
+                  id="username"
                   placeholder="Enter your name"
                   required
                   value={user.username}
@@ -60,6 +84,7 @@ function Register() {
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   placeholder="Enter your email"
                   required
                   value={user.email}
@@ -76,6 +101,7 @@ function Register() {
                 <input
                   type="number"
                   name="phone"
+                  id="phone"
                   placeholder="Enter your phone"
                   required
                   value={user.phone}
@@ -92,6 +118,7 @@ function Register() {
                 <input
                   type="password"
                   name="password"
+                  id="password"
                   placeholder="Enter your password"
                   required
                   value={user.password}
