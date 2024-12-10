@@ -1,4 +1,7 @@
+import { useAuth } from "../store/auth";
+
 function Home() {
+  const { user } = useAuth();
   return (
     <>
       <main>
@@ -6,6 +9,9 @@ function Home() {
         <section className="w-full md:flex p-8  text-slate-300 md:justify-evenly items-center">
           {/* Text Info Section */}
           <div className="info md:w-1/2 space-y-6 md:py-6">
+            <p className="text-lg text-white font-semibold">
+              Welcome,{user ? ` ${user.username}` : `to our website`}
+            </p>
             <p className="text-lg text-purple-400 font-semibold">
               We are the world&apos;s best IT company
             </p>

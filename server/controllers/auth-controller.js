@@ -59,4 +59,11 @@ const login = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = { home, register, login };
+
+// get user details on frontend
+const user = async (req, res) => {
+  const userData = req.user;
+  console.log(userData);
+  return res.status(200).json({ userData });
+};
+module.exports = { home, register, login, user };

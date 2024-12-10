@@ -1,23 +1,37 @@
 import { useState } from "react";
+import { useAuth } from "../store/auth";
 
 function Contact() {
-  const [user, setUser] = useState({
+  const [contact, setContact] = useState({
     username: "",
     email: "",
     message: "",
   });
+
+  const [userData, setUserData] = useState(true);
+  const { user } = useAuth();
+
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    });
+    setUserData(false);
+  }
   const handleInput = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    setUser({
-      ...user,
+    setContact({
+      ...contact,
       [name]: value,
     });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+    console.log(contact);
   };
+
   return (
     <section className="p-8 min-h-screen md:mt-14">
       <main className="md:flex md:justify-center p-2 ">
@@ -45,7 +59,7 @@ function Contact() {
                 required
                 className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:ring-blue-400 focus:outline-none"
                 onChange={handleInput}
-                value={user.username}
+                value={contact.username}
               />
             </div>
             <div className="mb-4">
@@ -64,7 +78,7 @@ function Contact() {
                 required
                 className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:ring-blue-400 focus:outline-none"
                 onChange={handleInput}
-                value={user.email}
+                value={contact.email}
               />
             </div>
             <div className="mb-4">
@@ -81,7 +95,7 @@ function Contact() {
                 placeholder="Enter your message"
                 className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:ring-blue-400 focus:outline-none"
                 onChange={handleInput}
-                value={user.message}
+                value={contact.message}
               ></textarea>
             </div>
             <button
