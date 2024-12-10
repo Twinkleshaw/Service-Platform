@@ -1,4 +1,8 @@
+import { useAuth } from "../store/auth";
+
 function About() {
+  const { user } = useAuth();
+
   return (
     <>
       <section className="md:flex md:justify-evenly p-8 ">
@@ -8,6 +12,9 @@ function About() {
         </div>
         {/* about text */}
         <div className="space-y-6  md:p-8">
+          <p className="text-lg text-white font-semibold">
+            Welcome,{user ? ` ${user.username}` : `to our website`}
+          </p>
           <h1 className="font-extrabold text-4xl md:text-3xl text-white leading-tight">
             About Our Company Ready Solutions with{" "}
             <span className="text-purple-500">Technology</span>
