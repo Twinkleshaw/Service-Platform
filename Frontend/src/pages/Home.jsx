@@ -18,10 +18,14 @@ function Home() {
               world of IT. Whether you&apos;re a developer, a tech enthusiast,
               or just curious, you&apos;re in the right place. Let&apos;s build
               the future together!
-            </p>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
-              <Link to="/register">Get Started</Link>
-            </button>
+            </p>{" "}
+            <br />
+            <Link
+              to="/register"
+              className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300"
+            >
+              Get Started
+            </Link>
           </div>
           {/* Image Section */}
           <div className="image md:w-1/3 mt-8 md:mt-0">
