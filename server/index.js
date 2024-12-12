@@ -10,7 +10,7 @@ const errorMiddleware = require("./middleware/error-middleware");
 const path = require("path");
 const corsOptions = {
   origin: [
-    "https://service-platform-frontend-mern.onrender.com", // Live frontend
+    "https://service-platform.vercel.app/", // Live frontend
     "http://localhost:5173", // Local development
   ],
   methods: "GET, POST, PUT,DELETE,PATCH,HEAD",
