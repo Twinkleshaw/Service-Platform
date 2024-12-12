@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 function Register() {
   const [user, setUser] = useState({
     username: "",
@@ -32,12 +33,14 @@ function Register() {
         body: JSON.stringify(user),
       });
 
+      const res_data = await response.json();
       if (response.ok) {
-        const res_data = await response.json();
-        console.log(res_data);
         storeToken(res_data.token);
         setUser({ username: "", email: "", phone: "", password: "" });
-        navigate("/login");
+        toast.success("registration successful");
+        navigate("/");
+      } else {
+        toast.error(res_data.extraDetails);
       }
       console.log(response);
     } catch (error) {
@@ -125,7 +128,7 @@ function Register() {
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
                 />
-                <br />
+                <br /> <br />
                 <button
                   type="submit"
                   className="w-full text-white py-2 rounded-md hover:bg-purple-400 transition"

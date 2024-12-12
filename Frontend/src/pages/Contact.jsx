@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { useNavigate } from "react-router-dom";
 
 function Contact() {
   const [contact, setContact] = useState({
@@ -8,6 +9,7 @@ function Contact() {
     message: "",
   });
 
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(true);
   const { user } = useAuth();
 
@@ -27,9 +29,29 @@ function Contact() {
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(contact);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/contactForm/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contact),
+        }
+      );
+      if (response.ok) {
+        setContact({ username: "", email: "", message: "" });
+        alert("message send successfuly");
+        navigate("/");
+      }
+    } catch (error) {
+      alert("message not send");
+      console.log("error in contact", error);
+    }
   };
 
   return (
