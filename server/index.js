@@ -11,15 +11,19 @@ const path = require("path");
 const corsOptions = {
   origin: process.env.CLIENT_URL || "http://localhost:5173", // Allow your frontend's deployed URL or fallback to localhost
   methods: "GET, POST, PUT,DELETE,PATCH,HEAD",
-  Credentials: true,
+  credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "frontend/dist")));
 app.use("/api/auth", authRouter);
 app.use("/api/contactForm", contactRouter);
 app.use("/api/data", serviceRouter);
 app.use(errorMiddleware);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend/dist", "index.html"));
+});
 const PORT = process.env.PORT || 3000;
 
 connectDb().then(() => {
