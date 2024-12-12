@@ -24,10 +24,14 @@ function About() {
             At TechFusion, we bridge the gap between top freelancers and leading
             tech companies, fostering a collaborative environment where
             innovation thrives and growth is inevitable.
-          </p>
-          <button className="text-slate-300 bg-purple-600 rounded-3xl px-4 font-bold p-2">
-            <Link to="/contact">Contact Us</Link>
-          </button>
+          </p>{" "}
+          <br />
+          <Link
+            to="/contact"
+            className="text-slate-300 bg-purple-600 rounded-3xl px-4 font-bold p-2"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
       {/* about 3 divs */}
