@@ -1,5 +1,6 @@
 import { useAuth } from "../store/auth";
-import { Link } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
 
 function About() {
   const { user } = useAuth();
@@ -26,12 +27,12 @@ function About() {
             innovation thrives and growth is inevitable.
           </p>{" "}
           <br />
-          <Link
+          <NavLink
             to="/contact"
             className="text-slate-300 bg-purple-600 rounded-3xl px-4 font-bold p-2"
           >
             Contact Us
-          </Link>
+          </NavLink>
         </div>
       </section>
       {/* about 3 divs */}

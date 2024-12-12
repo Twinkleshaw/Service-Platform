@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 function Home() {
   return (
     <>
@@ -20,12 +21,12 @@ function Home() {
               the future together!
             </p>{" "}
             <br />
-            <Link
+            <NavLink
               to="/register"
               className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300"
             >
               Get Started
-            </Link>
+            </NavLink>
           </div>
           {/* Image Section */}
           <div className="image md:w-1/3 mt-8 md:mt-0">
