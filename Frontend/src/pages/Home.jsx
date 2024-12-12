@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <>
@@ -19,7 +20,7 @@ function Home() {
               the future together!
             </p>
             <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
-              <a href="/register">Get Started</a>
+              <Link to="/register">Get Started</Link>
             </button>
           </div>
           {/* Image Section */}

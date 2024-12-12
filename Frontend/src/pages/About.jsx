@@ -1,4 +1,5 @@
 import { useAuth } from "../store/auth";
+import { Link } from "react-router-dom";
 
 function About() {
   const { user } = useAuth();
@@ -25,7 +26,7 @@ function About() {
             innovation thrives and growth is inevitable.
           </p>
           <button className="text-slate-300 bg-purple-600 rounded-3xl px-4 font-bold p-2">
-            <a href="/contact">Contact Us</a>
+            <Link to="/contact">Contact Us</Link>
           </button>
         </div>
       </section>
