@@ -26,7 +26,7 @@ function Login() {
     console.log(user);
     try {
       const response = await fetch(
-        `https://service-platform-backend-mern.onrender.com/api/auth/login`,
+        `https://service-platform-b9kt.vercel.app/?vercelToolbarCode=p_55QScJojtVZsa/api/auth/login`,
         {
           method: "POST",
           headers: {

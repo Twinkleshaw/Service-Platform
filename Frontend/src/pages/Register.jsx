@@ -26,7 +26,7 @@ function Register() {
     console.log(user);
     try {
       const response = await fetch(
-        `https://service-platform-backend-mern.onrender.com/api/auth/register`,
+        `https://service-platform-b9kt.vercel.app/?vercelToolbarCode=p_55QScJojtVZsa/api/auth/register`,
         {
           method: "POST",
           headers: {
