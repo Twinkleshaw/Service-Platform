@@ -34,7 +34,7 @@ function Contact() {
     console.log(contact);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/contactForm/contact`,
+        `https://service-platform-backend-mern.onrender.com/api/contactForm/contact`,
         {
           method: "POST",
           headers: {

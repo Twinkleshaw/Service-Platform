@@ -39,9 +39,12 @@ export const AuthProvider = ({ children }) => {
 
   const getDervices = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/data/service`, {
-        method: "GET",
-      });
+      const response = await fetch(
+        `https://service-platform-backend-mern.onrender.com/api/data/service`,
+        {
+          method: "GET",
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setServiceData(data.msg);
