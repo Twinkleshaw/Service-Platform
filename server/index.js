@@ -24,9 +24,6 @@ app.use("/api/contactForm", contactRouter);
 app.use("/api/data", serviceRouter);
 app.use(errorMiddleware);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
 const PORT = process.env.PORT || 3000;
 
 connectDb().then(() => {

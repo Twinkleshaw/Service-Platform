@@ -21,15 +21,12 @@ export const AuthProvider = ({ children }) => {
 
   const userAuthentication = async () => {
     try {
-      const response = await fetch(
-        `https://service-platform-b9kt.vercel.app/?vercelToolbarCode=p_55QScJojtVZsa/api/auth/user`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`http://localhost:3000/api/auth/user`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (response.ok) {
         const data = await response.json();
         console.log("currently loggedIn user data", data.userData);

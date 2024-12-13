@@ -34,7 +34,7 @@ function Contact() {
     console.log(contact);
     try {
       const response = await fetch(
-        `https://service-platform-b9kt.vercel.app/?vercelToolbarCode=p_55QScJojtVZsa/api/contactForm/contact`,
+        `http://localhost:3000/api/contactForm/contact`,
         {
           method: "POST",
           headers: {
