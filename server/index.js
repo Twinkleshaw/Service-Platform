@@ -5,6 +5,7 @@ const app = express();
 const authRouter = require("./router/auth-router");
 const contactRouter = require("./router/contact-router");
 const serviceRouter = require("./router/service-router");
+const adminRouter = require("./router/admin-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 const path = require("path");
@@ -22,6 +23,8 @@ app.use(express.static(path.join(__dirname, "frontend", "dist")));
 app.use("/api/auth", authRouter);
 app.use("/api/contactForm", contactRouter);
 app.use("/api/data", serviceRouter);
+app.use("/api/admin", adminRouter);
+
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3000;

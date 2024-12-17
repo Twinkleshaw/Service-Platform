@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Contact() {
   const [contact, setContact] = useState({
@@ -45,11 +46,11 @@ function Contact() {
       );
       if (response.ok) {
         setContact({ username: "", email: "", message: "" });
-        alert("message send successfuly");
+        toast.success("message send successfuly");
         navigate("/");
       }
     } catch (error) {
-      alert("message not send");
+      toast.error("message not send");
       console.log("error in contact", error);
     }
   };
