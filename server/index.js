@@ -10,7 +10,7 @@ const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 const path = require("path");
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
   methods: "GET, POST, PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
