@@ -11,7 +11,7 @@ function Navbar() {
       <div className="flex items-center">
         <NavLink to="/">
           {/* Uncomment and add your logo image */}
-          {/* <img src="/images/logo.png" alt="" width={40} /> */}
+          <img src="/images/logo.png" alt="" width={100} />
           {/* <span className="text-2xl font-bold">Brand</span> */}
         </NavLink>
       </div>
@@ -26,7 +26,7 @@ function Navbar() {
 
       {/* Side drawer menu */}
       <div
-        className={`fixed top-0 right-0 h-full  w-64 transform transition-transform duration-300 ease-in-out  ${
+        className={`bg-slate-50 fixed top-0 right-0 h-full  w-64 transform transition-transform duration-300 ease-in-out  ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >

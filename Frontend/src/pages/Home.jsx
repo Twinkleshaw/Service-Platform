@@ -45,27 +45,57 @@ function Home() {
               We are happy they trusted us
             </p>
           </div>
-          <div className="p-8 grid md:grid-cols-5 md:gap-x-10 items-center gap-y-5 border-white">
+          <div className="p-8 grid lg:grid-cols-5 md:grid-cols-2  md:gap-x-10 items-center gap-y-5 border-white">
             <div>
-              <img src="/images/google.png" alt="Google" className="" />
+              <img
+                src="/images/google.png"
+                alt="Google"
+                className=""
+                height={100}
+                width={70}
+              />
             </div>
             <div>
-              <img src="/images/facebook.png" alt="Facebook" className="" />
+              <img
+                src="/images/facebook.png"
+                alt="Facebook"
+                className=""
+                height={100}
+                width={70}
+              />
             </div>
             <div>
-              <img src="/images/amazon.png" alt="Amazon" className="" />
+              <img
+                src="/images/instagram.png"
+                alt="Instagram"
+                className=""
+                height={100}
+                width={70}
+              />
             </div>
             <div>
-              <img src="/images/slack.png" alt="Slack" className="" />
+              <img
+                src="/images/twitter.png"
+                alt="twitter"
+                className=""
+                height={100}
+                width={70}
+              />
             </div>
             <div>
-              <img src="/images/logitech.png" alt="Logitech" className="" />
+              <img
+                src="/images/company.png"
+                alt="company"
+                className=""
+                height={100}
+                width={70}
+              />
             </div>
           </div>
         </section>
 
         {/* benefits */}
-        <section className="md:flex md:justify-evenly md:space-x-6 p-16">
+        <section className="grid lg:grid-cols-4 md:grid-cols-2 md:space-x-6 p-16">
           <div className="border border-slate-500 p-4 flex flex-col items-center justify-center text-center space-y-4 rounded-xl mb-3">
             <div className="">
               <img src="/images/expertise.png" alt="" />

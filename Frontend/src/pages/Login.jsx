@@ -49,7 +49,7 @@ function Login() {
   };
   return (
     <>
-      <section className="flex md:flex-row flex-col md:space-x-[5rem] justify-center items-center min-h-screen bg-gray-100 ">
+      <section className="flex md:flex-row flex-col md:space-x-[5rem] justify-center items-center min-h-screen bg-gray-100">
         <div>
           <img src="/images/about us.png" alt="" />
         </div>

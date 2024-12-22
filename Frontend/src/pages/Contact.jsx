@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { PiPhoneCallFill } from "react-icons/pi";
+import { MdEmail } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 function Contact() {
   const [contact, setContact] = useState({
     username: "",
@@ -59,7 +61,27 @@ function Contact() {
           <h3 className="text-xl font-extrabold text-black leading-tight">
             Contact Information
           </h3>
-          <p className="text-black">Say something to start a live chat!</p>
+          <p className="text-black pt-2">Say something to start a live chat!</p>
+          <div className="py-12 space-y-6">
+            <p className="flex items-center space-x-2">
+              <span>
+                <PiPhoneCallFill />
+              </span>
+              +123 456 7890
+            </p>
+            <p className="flex items-center space-x-2">
+              <span>
+                <MdEmail />
+              </span>
+              innova@gmail.com
+            </p>
+            <p className="flex items-center space-x-2">
+              <span>
+                <FaLocationDot />
+              </span>
+              123 Business Lane, Kolkata, India
+            </p>
+          </div>
         </div>
         <div className=" md:w-1/3 p-4 ">
           <form onSubmit={handleSubmit}>
