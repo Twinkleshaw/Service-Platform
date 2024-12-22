@@ -20,9 +20,11 @@ export const AuthProvider = ({ children }) => {
     return localStorage.removeItem("token");
   };
 
+  const API = import.meta.env.VITE_APP_URL;
+
   const userAuthentication = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/user`, {
+      const response = await fetch(`${API}/api/auth/user`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -40,12 +42,9 @@ export const AuthProvider = ({ children }) => {
 
   const getDervices = async () => {
     try {
-      const response = await fetch(
-        `https://service-platform-backend-mern.onrender.com/api/data/service`,
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch(`${API}/api/data/service`, {
+        method: "GET",
+      });
       if (response.ok) {
         const data = await response.json();
         setServiceData(data.msg);
@@ -69,6 +68,7 @@ export const AuthProvider = ({ children }) => {
         user,
         serviceData,
         authorizationToken,
+        API,
       }}
     >
       {children}

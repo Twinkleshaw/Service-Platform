@@ -12,6 +12,16 @@ const getAllUser = async (req, res, next) => {
   }
 };
 
+const deleteUserById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await User.deleteOne({ _id: id });
+    return res.status(200).json({ msg: "user deleted" });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getAllContact = async (req, res, next) => {
   try {
     const contacts = await Contact.find({}, { password: 0 });
@@ -23,4 +33,19 @@ const getAllContact = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = { getAllUser, getAllContact };
+
+const deleteContactById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Contact.deleteOne({ _id: id });
+    return res.status(200).json({ msg: "contact deleted" });
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = {
+  getAllUser,
+  getAllContact,
+  deleteUserById,
+  deleteContactById,
+};

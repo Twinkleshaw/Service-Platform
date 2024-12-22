@@ -19,13 +19,13 @@ function Login() {
   };
 
   const navigate = useNavigate();
-  const { storeToken } = useAuth();
+  const { storeToken, API } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/login`, {
+      const response = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

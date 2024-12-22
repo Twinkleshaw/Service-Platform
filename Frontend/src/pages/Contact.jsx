@@ -12,7 +12,7 @@ function Contact() {
 
   const navigate = useNavigate();
   const [userData, setUserData] = useState(true);
-  const { user } = useAuth();
+  const { user, API } = useAuth();
 
   if (userData && user) {
     setContact({
@@ -34,16 +34,13 @@ function Contact() {
     e.preventDefault();
     console.log(contact);
     try {
-      const response = await fetch(
-        `http://localhost:3000/api/contactForm/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(contact),
-        }
-      );
+      const response = await fetch(`${API}/api/contactForm/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
       if (response.ok) {
         setContact({ username: "", email: "", message: "" });
         toast.success("message send successfuly");

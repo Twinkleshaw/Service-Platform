@@ -22,6 +22,27 @@ export function AdminUser() {
     }
   };
 
+  const deleteUser = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/admin/users/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log(`user after delete ${data}`);
+        getAllUsers();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -39,7 +60,7 @@ export function AdminUser() {
               <th className="py-2 px-4 border-b ">Username</th>
               <th className="py-2 px-4 border-b ">Email</th>
               <th className="py-2 px-4 border-b ">Phone</th>
-              <th className="py-2 px-4 border-b">Update</th>
+              {/* <th className="py-2 px-4 border-b">Update</th> */}
               <th className="py-2 px-4 border-b ">Delete</th>
             </tr>
           </thead>
@@ -54,13 +75,16 @@ export function AdminUser() {
                 <td className="py-2 px-4 border-b">{currData.username}</td>
                 <td className="py-2 px-4 border-b">{currData.email}</td>
                 <td className="py-2 px-4 border-b">{currData.phone}</td>
-                <td className="py-2 px-4 border-b">
+                {/* <td className="py-2 px-4 border-b">
                   <button className="bg-blue-400 hover:bg-blue-500 text-white px-3 py-1 rounded shadow-lg">
                     <b>Edit</b>
                   </button>
-                </td>
+                </td> */}
                 <td className="py-2 px-4 border-b">
-                  <button className="bg-red-400 hover:bg-red-500 text-white px-3 py-1 rounded shadow-lg">
+                  <button
+                    className="bg-red-400 hover:bg-red-500 text-white px-3 py-1 rounded shadow-lg"
+                    onClick={() => deleteUser(currData._id)}
+                  >
                     <b>Delete</b>
                   </button>
                 </td>
