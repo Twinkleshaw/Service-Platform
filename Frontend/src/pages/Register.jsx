@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
+
 function Register() {
   const [user, setUser] = useState({
     username: "",
@@ -48,100 +50,109 @@ function Register() {
     }
   };
   return (
-    <>
-      <section className="flex justify-center p-4 min-h-screen">
-        <main className="pt-8 w-full max-w-5xl ">
-          <div className="parent md:flex md:justify-evenly ">
-            <div className="leftside">
-              <img src="/images/login.png" alt="" height="400" width="400" />
-            </div>
-            <div className="rightside  md:w-1/3">
-              <h1 className="text-3xl font-bold text-slate-200 mb-3 text-center md:text-left pt-4">
-                Registration Form
-              </h1>
-              <br />
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <label
-                  htmlFor="username"
-                  className="block text-slate-300 font-medium"
-                >
-                  User Name
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  placeholder="Enter your name"
-                  required
-                  value={user.username}
-                  onChange={handleChange}
-                  className="w-full  px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                />
-                <br />
-                <label
-                  htmlFor="email"
-                  className="block text-slate-300 font-medium"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your email"
-                  required
-                  value={user.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                />
-                <br />
-                <label
-                  htmlFor="phone"
-                  className="block text-slate-300 font-medium"
-                >
-                  Phone No.
-                </label>
-                <input
-                  type="number"
-                  name="phone"
-                  id="phone"
-                  placeholder="Enter your phone"
-                  required
-                  value={user.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                />
-                <br />
-                <label
-                  htmlFor="password"
-                  className="block text-slate-300 font-medium"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  required
-                  value={user.password}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                />
-                <br /> <br />
-                <button
-                  type="submit"
-                  className="w-full text-white py-2 rounded-md hover:bg-purple-400 transition"
-                  style={{ backgroundColor: "#9C5CF8" }}
-                >
-                  Register Now
-                </button>
-              </form>
-            </div>
+    <section className="flex md:flex-row flex-col md:space-x-[5rem] justify-center items-center min-h-screen bg-gray-100">
+      <div>
+        <img src="/images/about us.png" alt="" />
+      </div>
+      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
+        <div className="text-center mb-6">
+          <div className="flex justify-center mb-6">
+            <img src="images/logo.png" alt="Logo" className="h-10" />
           </div>
-        </main>
-      </section>
-    </>
+
+          <h2 className="text-2xl font-bold text-gray-800">Register Here</h2>
+          <p className="text-gray-500">
+            Fill in your details to create an account
+          </p>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-gray-700"
+            >
+              User Name
+            </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter your name"
+              value={user.username}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 text-sm"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              value={user.email}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 text-sm"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Phone No.
+            </label>
+            <input
+              type="number"
+              name="phone"
+              id="phone"
+              placeholder="Enter your phone"
+              value={user.phone}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 text-sm"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              value={user.password}
+              onChange={handleChange}
+              required
+              className="mt-1 w-full px-3 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500 text-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-500 transition"
+          >
+            Register Now
+          </button>
+        </form>
+        <p className="mt-6 text-sm text-center text-gray-600">
+          Already have an account?{" "}
+          <NavLink to="/login" className="text-purple-600 hover:underline">
+            Login here
+          </NavLink>
+        </p>
+      </div>
+    </section>
   );
 }
 

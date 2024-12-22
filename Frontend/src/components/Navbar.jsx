@@ -7,7 +7,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex pt-10 pb-10 md:justify-evenly px-8 md:px-0 justify-between text-white md:text-purple-500 ">
+    <header className="flex pt-10 pb-10 md:justify-evenly px-8 md:px-0 justify-between  md:text-[#673ab7] ">
       <div className="flex items-center">
         <NavLink to="/">
           {/* Uncomment and add your logo image */}
@@ -26,7 +26,7 @@ function Navbar() {
 
       {/* Side drawer menu */}
       <div
-        className={`fixed top-0 right-0 h-full bg-purple-500 w-64 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full  w-64 transform transition-transform duration-300 ease-in-out  ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >

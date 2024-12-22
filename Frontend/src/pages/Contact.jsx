@@ -53,9 +53,9 @@ function Contact() {
   };
 
   return (
-    <section className="p-8 min-h-screen md:mt-14">
-      <main className="md:flex md:justify-center p-2 ">
-        <div className=" p-8 md:px-20 bg-[#E6E6FA] rounded-xl md:w-1/3">
+    <section className="p-8 min-h-screen md:pt-20 bg-gray-100">
+      <main className="md:flex md:justify-center p-2">
+        <div className=" p-8 md:px-20 bg-[#E6E6FA] rounded-xl md:w-1/3 ">
           <h3 className="text-xl font-extrabold text-black leading-tight">
             Contact Information
           </h3>
@@ -66,7 +66,7 @@ function Contact() {
             <div className="mb-4">
               <label
                 htmlFor="username"
-                className="text-sm font-semibold text-slate-300"
+                className="text-sm font-semibold text-gray-700"
               >
                 Name
               </label>{" "}
@@ -85,7 +85,7 @@ function Contact() {
             <div className="mb-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold  text-slate-300"
+                className="block text-sm font-semibold  text-gray-700"
               >
                 Email
               </label>{" "}
@@ -104,7 +104,7 @@ function Contact() {
             <div className="mb-4">
               <label
                 htmlFor="message"
-                className=" block text-sm font-semibold  text-slate-300"
+                className=" block text-sm font-semibold  text-gray-700"
               >
                 Message
               </label>{" "}
@@ -120,7 +120,7 @@ function Contact() {
             </div>
             <button
               type="submit"
-              className="   text-white p-2 md:float-end  rounded-md hover:bg-purple-400 transition"
+              className="   text-white p-2 md:float-end bg-[#673ab7] rounded-md hover:bg-[#673ab7]  transition"
               style={{ backgroundColor: "#9C5CF8" }}
             >
               Contact Now

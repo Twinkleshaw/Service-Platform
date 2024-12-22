@@ -14,14 +14,14 @@ function About() {
         </div>
         {/* about text */}
         <div className="space-y-6  md:p-8">
-          <p className="text-lg text-white font-semibold">
+          <p className="text-xl  font-semibold">
             Welcome,{user ? ` ${user.username}` : `to our website`}
           </p>
-          <h1 className="font-extrabold text-4xl md:text-3xl text-white leading-tight">
+          <h1 className="font-extrabold text-4xl md:text-3xl  leading-tight">
             About Our Company Ready Solutions with{" "}
-            <span className="text-purple-500">Technology</span>
+            <span className="text-[#673ab7]">Technology</span>
           </h1>
-          <p className="text-lg text-slate-300 font-semibold">
+          <p className="text-xl text-slate-700 ">
             At TechFusion, we bridge the gap between top freelancers and leading
             tech companies, fostering a collaborative environment where
             innovation thrives and growth is inevitable.
@@ -29,7 +29,7 @@ function About() {
           <br />
           <NavLink
             to="/contact"
-            className="text-slate-300 bg-purple-600 rounded-3xl px-4 font-bold p-2"
+            className="text-slate-50 bg-[#673ab7] rounded-3xl px-4 font-bold p-2"
           >
             Contact Us
           </NavLink>
@@ -41,7 +41,7 @@ function About() {
           <h1 className="text-xl font-extrabold text-white leading-tight">
             MISSION
           </h1>
-          <p className="text-slate-300">
+          <p className="text-slate-50 text-lg">
             We aim to transform the businesses through the comprehensive
             technology services, ensuring our clients achieve their objectives
             customized and scalable solutions.
@@ -51,17 +51,17 @@ function About() {
           <h1 className="text-xl font-extrabold text-white leading-tight">
             VISSION
           </h1>
-          <p className="text-slate-300">
+          <p className="text-slate-50 text-lg">
             We aspire to revolutionize tech services with top-tier, customized
             solutions driving client growth, fostering innovation, and ensuring
             success in the digital landscape.
           </p>
         </div>
-        <div className="p-8 space-y-4 mb-6  bg-[#4B0082] rounded-xl">
+        <div className="p-8 space-y-4 mb-6  bg-purple-600 rounded-xl">
           <h1 className="text-xl font-extrabold text-white leading-tight">
             OUR TEAM
           </h1>
-          <p className="text-slate-300">
+          <p className="text-slate-50 text-lg">
             With teamwork and innovation, our diverse experts deliver
             exceptional tech services, empowering businesses to thrive and
             innovate effectively in today’s dynamic digital landscape.

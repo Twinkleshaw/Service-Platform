@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 function Login() {
   const [user, setUser] = useState({
@@ -48,60 +49,82 @@ function Login() {
   };
   return (
     <>
-      <section className="flex justify-center p-4 min-h-screen">
-        <main className="pt-8 w-full max-w-5xl">
-          <div className="parent md:flex md:justify-evenly">
-            <div className="leftside">
-              <img src="/images/login.png" alt="" height="400" width="400" />
-            </div>
-            <div className="rightside md:w-1/3">
-              <h1 className="text-3xl font-bold text-slate-200 mb-6 text-center md:text-left pt-4">
-                Login Here
-              </h1>
-              <form onSubmit={handleSubmit} className="space-y-4 ">
-                <label
-                  htmlFor="email"
-                  className="text-slate-300 block font-medium"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your Email"
-                  required
-                  value={user.email}
-                  onChange={handleInput}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                />
-                <label
-                  htmlFor="password"
-                  className="block text-slate-300 font-medium "
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your Password"
-                  required
-                  value={user.password}
-                  onChange={handleInput}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                />
-                <br />
-                <button
-                  type="submit"
-                  className="w-full text-white py-2 rounded-md hover:bg-purple-400 transition"
-                  style={{ backgroundColor: "#9C5CF8" }}
-                >
-                  Login
-                </button>
-              </form>
-            </div>
+      <section className="flex md:flex-row flex-col md:space-x-[5rem] justify-center items-center min-h-screen bg-gray-100 ">
+        <div>
+          <img src="/images/about us.png" alt="" />
+        </div>
+        <main className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+          {/* Logo */}
+          <div className="flex justify-center mb-6">
+            <img src="images/logo.png" alt="Logo" className="h-10" />
           </div>
+
+          {/* Welcome Text */}
+          <h2 className="text-2xl font-bold text-center text-purple-700 mb-4">
+            Hi, Welcome Back
+          </h2>
+          <p className="text-center text-gray-500 mb-6">
+            Enter your credentials to continue
+          </p>
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Email Input */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-gray-600 font-medium"
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={user.email}
+                onChange={handleInput}
+                placeholder="Enter your Email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-400 focus:outline-none"
+                required
+              />
+            </div>
+
+            {/* Password Input */}
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-gray-600 font-medium"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={user.password}
+                onChange={handleInput}
+                placeholder="Enter your Password"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-400 focus:outline-none"
+                required
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-2 text-white rounded-md bg-purple-600 hover:bg-purple-500 transition"
+            >
+              Sign In
+            </button>
+          </form>
+
+          {/* Footer */}
+          <p className="mt-6 text-center text-gray-500 text-sm">
+            Don’t have an account?{" "}
+            <NavLink to="/register" className="text-purple-600 hover:underline">
+              Register
+            </NavLink>
+          </p>
         </main>
       </section>
     </>

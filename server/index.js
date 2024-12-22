@@ -14,7 +14,6 @@ const corsOptions = {
     const allowedOrigins = [
       "http://localhost:5173", // for local development
       process.env.CLIENT_URL, // your production frontend URL
-      "*",
     ];
 
     const isAllowed = allowedOrigins.includes(origin);
