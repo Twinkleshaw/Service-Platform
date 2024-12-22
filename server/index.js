@@ -10,10 +10,7 @@ const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 const path = require("path");
 const corsOptions = {
-  origin: [
-    "https://service-platform.vercel.app/", // Live frontend
-    "http://localhost:5173", // Local development
-  ],
+  origin: process.env.CLIENT_URL,
   methods: "GET, POST, PUT,DELETE,PATCH,HEAD",
   credentials: true,
 };
