@@ -13,7 +13,7 @@ function About() {
           <img src="images/about us.png" alt="" />
         </div>
         {/* about text */}
-        <div className="space-y-6  md:p-8">
+        <div className="space-y-6 pt-4 md:p-8">
           <p className="text-xl  font-semibold">
             Welcome,{user ? ` ${user.username}` : `to our website`}
           </p>
