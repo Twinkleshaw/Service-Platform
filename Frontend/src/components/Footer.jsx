@@ -59,7 +59,7 @@ const Footer = () => {
             123 Business Lane, Kolkata, India
           </p>
           <p className="text-white font-semibold">Phone: +123 456 7890</p>
-          <p className="text-white font-semibold">Email: innova@gamil.com</p>
+          <p className="text-white font-semibold">Email: innova@gmail.com</p>
         </div>
       </div>
 

@@ -63,20 +63,20 @@ function Contact() {
           </h3>
           <p className="text-black pt-2">Say something to start a live chat!</p>
           <div className="py-12 space-y-6">
-            <p className="flex items-center space-x-2">
-              <span>
+            <p className="flex items-center space-x-2 ">
+              <span className="px-2">
                 <PiPhoneCallFill />
               </span>
               +123 456 7890
             </p>
             <p className="flex items-center space-x-2">
-              <span>
+              <span className="px-2">
                 <MdEmail />
               </span>
               innova@gmail.com
             </p>
             <p className="flex items-center space-x-2">
-              <span>
+              <span className="px-2">
                 <FaLocationDot />
               </span>
               123 Business Lane, Kolkata, India
@@ -90,13 +90,13 @@ function Contact() {
                 htmlFor="username"
                 className="text-sm font-semibold text-gray-700"
               >
-                Name
+                Username
               </label>{" "}
               <input
                 type="text"
                 name="username"
                 id="username"
-                placeholder="Enter our name"
+                placeholder="Enter your Username"
                 autoComplete="off"
                 required
                 className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:ring-blue-400 focus:outline-none"
@@ -115,7 +115,7 @@ function Contact() {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Enter our email"
+                placeholder="Enter your email"
                 autoComplete="off"
                 required
                 className="w-full p-2 mt-2 border border-gray-300 rounded-md focus:ring-blue-400 focus:outline-none"

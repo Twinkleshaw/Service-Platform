@@ -40,12 +40,12 @@ function Home() {
         </section>
         {/* other companies */}
         <section className="px-20 pt-8 shadow-lg bg-slate-100">
-          <div className="mb-3 md:w-1/2 md:px-8">
+          <div className="mb-3 lg:w-1/2 md:px-8">
             <p className="font-extrabold text-2xl text-[#673ab7] leading-tight ">
               We are happy they trusted us
             </p>
           </div>
-          <div className="p-8 grid lg:grid-cols-5 md:grid-cols-2  md:gap-x-10 items-center gap-y-5 border-white">
+          <div className="p-8 grid lg:grid-cols-5 md:grid-cols-2 gap-5 items-center justify-items-center border-white">
             <div>
               <img
                 src="/images/google.png"

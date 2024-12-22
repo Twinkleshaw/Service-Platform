@@ -71,13 +71,13 @@ function Register() {
               htmlFor="username"
               className="block text-sm font-medium text-gray-700"
             >
-              User Name
+              Username
             </label>
             <input
               type="text"
               name="username"
               id="username"
-              placeholder="Enter your name"
+              placeholder="Enter your Username"
               value={user.username}
               onChange={handleChange}
               required
@@ -113,7 +113,7 @@ function Register() {
               type="number"
               name="phone"
               id="phone"
-              placeholder="Enter your phone"
+              placeholder="Enter your phone number"
               value={user.phone}
               onChange={handleChange}
               required
