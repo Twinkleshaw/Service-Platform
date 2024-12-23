@@ -22,18 +22,21 @@ function Register() {
   };
 
   const navigate = useNavigate();
-  const { storeToken, API } = useAuth();
+  const { storeToken } = useAuth();
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
     try {
-      const response = await fetch(`${API}/api/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+      const response = await fetch(
+        `https://service-backend-9a8q.onrender.com/api/auth/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
 
       const res_data = await response.json();
       if (response.ok) {
