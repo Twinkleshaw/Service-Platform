@@ -12,8 +12,8 @@ const path = require("path");
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
+      `https://service-frontend-2re7.onrender.com`, // your production frontend URL
       "http://localhost:5173", // for local development
-      process.env.CLIENT_URL, // your production frontend URL
     ];
 
     const isAllowed = allowedOrigins.includes(origin);
