@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     return localStorage.removeItem("token");
   };
 
-  const API = `http://localhost:3000`;
+  const API = import.meta.env.VITE_APP_URL;
 
   const userAuthentication = async () => {
     try {
