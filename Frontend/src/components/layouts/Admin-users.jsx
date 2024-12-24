@@ -25,7 +25,7 @@ export function AdminUser() {
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/users/delete/${id}`,
+        `https://service-backend-9a8q.onrender.com/api/admin/users/delete/${id}`,
         {
           method: "DELETE",
           headers: {
