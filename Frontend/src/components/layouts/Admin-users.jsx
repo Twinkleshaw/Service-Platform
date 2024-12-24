@@ -7,12 +7,15 @@ export function AdminUser() {
 
   const getAllUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/users`, {
-        method: "GET",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        `https://service-backend-9a8q.onrender.com/api/admin/users`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setUsers(data);

@@ -7,12 +7,15 @@ export function AdminContact() {
 
   const getAllContacts = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/contacts`, {
-        method: "GET",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        `https://service-backend-9a8q.onrender.com/api/admin/contacts`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
       if (response.ok) {
         const contactData = await response.json();
         setContact(contactData);
