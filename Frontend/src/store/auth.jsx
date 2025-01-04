@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(true);
   const [serviceData, setServiceData] = useState([]);
   const authorizationToken = `Bearer ${token}`;
   const storeToken = (serverToken) => {
@@ -40,7 +41,8 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const getDervices = async () => {
+  const getServices = async () => {
+    setLoading(true);
     try {
       const response = await fetch(`${API}/api/data/service`, {
         method: "GET",
@@ -52,10 +54,12 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("frontend server error", error);
+    } finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
-    getDervices();
+    getServices();
     userAuthentication();
   }, []);
 
@@ -69,6 +73,7 @@ export const AuthProvider = ({ children }) => {
         serviceData,
         authorizationToken,
         API,
+        loading,
       }}
     >
       {children}
